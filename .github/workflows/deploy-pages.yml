@@ -31,7 +31,7 @@ jobs:
         with:
           bun-version: latest
 
-      - run: bun install --frozen-lockfile
+      - run: bun install
 
       - name: Compute base path
         id: vars
@@ -49,6 +49,7 @@ jobs:
         env:
           NITRO_PRESET: github-pages
           BASE_PATH: ${{ steps.vars.outputs.base_path }}
+          NITRO_APP_BASE_URL: ${{ steps.vars.outputs.base_path }}
 
       - uses: actions/configure-pages@v5
 
